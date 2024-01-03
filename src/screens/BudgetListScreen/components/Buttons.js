@@ -1,13 +1,21 @@
 import React from 'react';
-import {View, Alert, TouchableOpacity, Text, StyleSheet} from 'react-native';
+import {
+  View,
+  Alert,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Platform,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {moderateScale, scale, verticalScale} from 'react-native-size-matters';
-import { RealmContext } from '../../../realm/RealmWrapper';
-import { Budget, Category, Transaction } from '../../../realm/Schema';
+import {RealmContext} from '../../../realm/RealmWrapper';
+import {Budget, Category, Transaction} from '../../../realm/Schema';
 import Realm from 'realm';
 import dayjs from 'dayjs';
-import RNFS from 'react-native-fs';
-import Papa from 'papaparse'
+import Papa from 'papaparse';
+import * as FileSystem from 'expo-file-system';
+import {shareAsync} from 'expo-sharing';
 
 export const RestoreBudgetButton = ({restoreBudget}) => {
   const confirmRestore = () =>
@@ -32,32 +40,34 @@ export const RestoreBudgetButton = ({restoreBudget}) => {
   );
 };
 
-export const DeleteBudgetButton = ({deleteSuccessfulCallback, selectedBudget}) => {
-  const { useRealm, useObject } = RealmContext
-  const realm = useRealm()
+export const DeleteBudgetButton = ({
+  deleteSuccessfulCallback,
+  selectedBudget,
+}) => {
+  const {useRealm, useObject} = RealmContext;
+  const realm = useRealm();
   const budgetToBeArchive = useObject(Budget, selectedBudget?._id);
 
   const archiveBudget = () => {
     realm.write(() => {
-      budgetToBeArchive.archived = true
-      budgetToBeArchive.selected = false
-      deleteSuccessfulCallback()
+      budgetToBeArchive.archived = true;
+      budgetToBeArchive.selected = false;
+      deleteSuccessfulCallback();
     });
-  }
+  };
 
   const confirmDelete = () =>
     Alert.alert('Delete Budget', 'This action cannot be undone.', [
-        {
-          text: 'Cancel',
-          style: 'cancel',
-        },
-        {
-          text: 'Delete',
-          onPress: () => archiveBudget(),
-          style: 'destructive',
-        },
-      ],
-    );
+      {
+        text: 'Cancel',
+        style: 'cancel',
+      },
+      {
+        text: 'Delete',
+        onPress: () => archiveBudget(),
+        style: 'destructive',
+      },
+    ]);
 
   return (
     <TouchableOpacity style={styles.bottomSheetButton} onPress={confirmDelete}>
@@ -81,8 +91,8 @@ export const CloseButton = ({onPress}) => {
 };
 
 export const SelectButton = ({selectSuccessCallback, selectedBudget}) => {
-  const { useRealm, useObject, useQuery } = RealmContext
-  const realm = useRealm()
+  const {useRealm, useObject, useQuery} = RealmContext;
+  const realm = useRealm();
   const budgetToBeSelected = useObject(Budget, selectedBudget?._id);
 
   let currentActiveBudget = useQuery(Budget, budgets => {
@@ -92,13 +102,13 @@ export const SelectButton = ({selectSuccessCallback, selectedBudget}) => {
   const selectBudget = () => {
     realm.write(() => {
       for (const activeBudget of currentActiveBudget) {
-        activeBudget.selected = false
+        activeBudget.selected = false;
       }
-      budgetToBeSelected.selected = true
+      budgetToBeSelected.selected = true;
 
-      selectSuccessCallback()
+      selectSuccessCallback();
     });
-  }
+  };
 
   return (
     <TouchableOpacity style={styles.bottomSheetButton} onPress={selectBudget}>
@@ -111,47 +121,81 @@ export const SelectButton = ({selectSuccessCallback, selectedBudget}) => {
 };
 
 export const ExportButton = ({selectSuccessCallback, selectedBudget}) => {
-  const { useRealm, useObject, useQuery } = RealmContext
-  const realm = useRealm()
+  const {useRealm, useObject, useQuery} = RealmContext;
+  const realm = useRealm();
   const budgetToBeSelected = useObject(Budget, selectedBudget?._id);
 
   const categories = useQuery(Category, categories => {
-    return categories.sorted('dateCreated', true)
-  })
+    return categories.sorted('dateCreated', true);
+  });
 
   let transactions = useQuery(Transaction, transaction => {
-    return transaction.filtered('budgetId == $0', new Realm.BSON.ObjectId(selectedBudget?._id));
-  })
+    return transaction.filtered(
+      'budgetId == $0',
+      new Realm.BSON.ObjectId(selectedBudget?._id),
+    );
+  });
 
-  transactions = transactions.map((transaction) => {
-    const categoryInfo = categories.find((category) => category?._id.toString() === transaction.categoryId.toString())
-    return ({
+  transactions = transactions.map(transaction => {
+    const categoryInfo = categories.find(
+      category =>
+        category?._id.toString() === transaction.categoryId.toString(),
+    );
+    return {
       category: categoryInfo.name,
       amount: transaction.amount / 100,
       description: transaction.description,
       date: dayjs(transaction.transactionDate).format('YYYY-MM-DD').toString(),
-    })
-  })
+    };
+  });
 
-  const exportBudget = async () => {
-
-    try {
-      // Convert data to CSV string
-      const csvString = Papa.unparse(transactions);
-
-      if (!csvString) {
-        throw new Error('CSV string is empty');
+  const save = async (uri, filename, mimetype) => {
+    if (Platform.OS === 'android') {
+      const permissions =
+        await FileSystem.StorageAccessFramework.requestDirectoryPermissionsAsync();
+      if (permissions.granted) {
+        const data = await FileSystem.readAsStringAsync(uri, {
+          encoding: FileSystem.EncodingType.UTF8,
+        });
+        await FileSystem.StorageAccessFramework.createFileAsync(
+          permissions.directoryUri,
+          filename,
+          mimetype,
+        )
+          .then(async uri => {
+            await FileSystem.writeAsStringAsync(uri, data, {
+              encoding: FileSystem.EncodingType.UTF8,
+            });
+          })
+          .catch(e => console.log(e));
+      } else {
+        shareAsync(uri);
       }
-
-      const path = RNFS.DocumentDirectoryPath + '/example.csv';
-
-      await RNFS.writeFile(path, csvString, 'utf8');
-      console.log('CSV file created successfully:', path);
-    } catch (error) {
-      console.log(error)
-      // console.error('Error creating CSV file:', error);
+    } else {
+      shareAsync(uri, {UTI: 'public.comma-separated-values-text'});
     }
-  }
+  };
+
+  const exportBudget = () => {
+    // console.log(JSON.stringify(FileSystem, undefined, 2))
+    const csvString = Papa.unparse(transactions);
+
+    const fileName = `${selectedBudget?.name}-${dayjs(
+      selectedBudget?.startDate,
+    ).format('YYYY-MM-DD')}-${dayjs(selectedBudget?.endDate).format(
+      'YYYY-MM-DD',
+    )}.csv`;
+    const fileUri = `${FileSystem.cacheDirectory}${fileName}`;
+    FileSystem.writeAsStringAsync(fileUri, csvString, {
+      encoding: FileSystem.EncodingType.UTF8,
+    })
+      .then(() => {
+        save(fileUri, fileName, 'text/csv');
+      })
+      .catch(error => {
+        console.log(JSON.stringify(error, undefined, 2), 'error');
+      });
+  };
 
   return (
     <TouchableOpacity style={styles.bottomSheetButton} onPress={exportBudget}>

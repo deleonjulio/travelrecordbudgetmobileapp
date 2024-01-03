@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* travelrecordbudgetmobileappTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* travelrecordbudgetmobileappTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-travelrecordbudgetmobileapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-travelrecordbudgetmobileapp.a */; };
+		105D925C111013A5181BD3B7 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C905203D4AA220C0B957C45D /* ExpoModulesProvider.swift */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -23,6 +24,7 @@
 		740C6E7250BB46708C8BDCA8 /* Muli-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470184C1C3B742C58F13051A /* Muli-ExtraLight.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C75A3EA0B393B1C86C1809C1 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DD3B3BAC193F62B3ED5457 /* ExpoModulesProvider.swift */; };
 		EAE0DE131D814F4F937D15D8 /* Muli-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88FEE607A9C24478BC80CC51 /* Muli-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +58,7 @@
 		5B7EB9410499542E8C5724F5 /* Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.debug.xcconfig"; path = "Target Support Files/Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests/Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-travelrecordbudgetmobileapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-travelrecordbudgetmobileapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		701AB499F6614723882E4EC0 /* Muli-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-ExtraLightItalic.ttf"; path = "../assets/fonts/Muli-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		76DD3B3BAC193F62B3ED5457 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-travelrecordbudgetmobileapp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = travelrecordbudgetmobileapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88FEE607A9C24478BC80CC51 /* Muli-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-SemiBold.ttf"; path = "../assets/fonts/Muli-SemiBold.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.release.xcconfig"; path = "Target Support Files/Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests/Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		B92B4C83CAA34056B11FCFF3 /* Muli-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-BoldItalic.ttf"; path = "../assets/fonts/Muli-BoldItalic.ttf"; sourceTree = "<group>"; };
 		C308CAD174F148B4B64ACD2F /* Muli-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-LightItalic.ttf"; path = "../assets/fonts/Muli-LightItalic.ttf"; sourceTree = "<group>"; };
 		C8E3F2D343E34ECDAABEA1D0 /* Muli-Semi-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-Semi-BoldItalic.ttf"; path = "../assets/fonts/Muli-Semi-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C905203D4AA220C0B957C45D /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -126,6 +130,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		828A83850833B01FD0CAC1E6 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				F5D8E69FD6B3C4E5AF65528A /* travelrecordbudgetmobileapp */,
+				B5263703DD89F48CFF323EC3 /* travelrecordbudgetmobileappTests */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +156,7 @@
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
 				EA4561F924274631A56D6732 /* Resources */,
+				828A83850833B01FD0CAC1E6 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -156,6 +170,14 @@
 				00E356EE1AD99517003FC87E /* travelrecordbudgetmobileappTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B5263703DD89F48CFF323EC3 /* travelrecordbudgetmobileappTests */ = {
+			isa = PBXGroup;
+			children = (
+				C905203D4AA220C0B957C45D /* ExpoModulesProvider.swift */,
+			);
+			name = travelrecordbudgetmobileappTests;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -187,6 +209,14 @@
 			path = "";
 			sourceTree = "<group>";
 		};
+		F5D8E69FD6B3C4E5AF65528A /* travelrecordbudgetmobileapp */ = {
+			isa = PBXGroup;
+			children = (
+				76DD3B3BAC193F62B3ED5457 /* ExpoModulesProvider.swift */,
+			);
+			name = travelrecordbudgetmobileapp;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -195,6 +225,7 @@
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "travelrecordbudgetmobileappTests" */;
 			buildPhases = (
 				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				33E7535E713543046EC62991 /* [Expo] Configure project */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
@@ -217,6 +248,7 @@
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
+				30D71225B38594430A773325 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
@@ -331,6 +363,44 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-travelrecordbudgetmobileapp/Pods-travelrecordbudgetmobileapp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		30D71225B38594430A773325 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-travelrecordbudgetmobileapp/expo-configure-project.sh\"\n";
+		};
+		33E7535E713543046EC62991 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests/expo-configure-project.sh\"\n";
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -454,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00E356F31AD99517003FC87E /* travelrecordbudgetmobileappTests.m in Sources */,
+				105D925C111013A5181BD3B7 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,6 +534,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				C75A3EA0B393B1C86C1809C1 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +559,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = travelrecordbudgetmobileappTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,6 +570,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/travelrecordbudgetmobileapp.app/travelrecordbudgetmobileapp";
@@ -511,7 +584,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = travelrecordbudgetmobileappTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -522,6 +595,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/travelrecordbudgetmobileapp.app/travelrecordbudgetmobileapp";
@@ -547,6 +621,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = travelrecordbudgetmobileapp;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -573,6 +648,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = travelrecordbudgetmobileapp;
 				SWIFT_VERSION = 5.0;
@@ -629,7 +705,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -695,7 +771,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
