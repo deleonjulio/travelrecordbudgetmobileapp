@@ -3,6 +3,7 @@ import {
   View,
   StyleSheet,
   FlatList,
+  Platform
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import dayjs from 'dayjs';
@@ -165,16 +166,20 @@ const styles = StyleSheet.create({
   },
   dateInText: {
     color: 'gray',
-    fontSize: moderateScale(16)
+    fontSize: moderateScale(16),
+    fontWeight: '500',
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'}),
   },
   totalExpense: {
     color: 'black',
     fontSize: moderateScale(17),
-    fontWeight: '700'
+    fontWeight: '600',
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'}),
   },
   noTransactionFoundText: {
     color: 'black',
     fontSize: moderateScale(20),
-    fontWeight: '500'
+    fontWeight: '600',
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'}),
   }
 });

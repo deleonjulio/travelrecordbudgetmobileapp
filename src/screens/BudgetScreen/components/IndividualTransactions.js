@@ -45,18 +45,20 @@ const styles = StyleSheet.create({
   }),
   categoryName: ({isDarkMode = false}) => ({
     color: isDarkMode ? 'white' : 'black',
-    fontWeight: '500',
+    fontWeight: '600',
     fontSize: moderateScale(16),
-    ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'}),
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'}),
   }),
   description: ({isDarkMode = false}) => ({
     color: isDarkMode ? '#7f7f7f' : 'gray',
     fontWeight: '400',
     fontSize: moderateScale(14),
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'}),
   }),
   amount: ({isDarkMode = false}) => ({
     color: isDarkMode ? 'white' : 'black',
     fontWeight: '400',
     fontSize: moderateScale(15),
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli'}),
   })
 })

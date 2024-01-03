@@ -12,7 +12,7 @@ import { DeleteBudgetButton, CloseButton, SelectButton, ExportButton } from "./c
 export const BudgetListScreen = ({navigation}) => {
     const [selectedBudget, setSelectedBudget] = useState(null)
     const bottomSheetModalRef = useRef(null);
-    const snapPoints = useMemo(() => ['37%'], []);
+    const snapPoints = useMemo(() => ['36%'], []);
     
     const handleOpenBottomSheet = useCallback(budget => {
         bottomSheetModalRef.current?.present();
@@ -57,12 +57,12 @@ export const BudgetListScreen = ({navigation}) => {
         <View style={styles.container}>
             <BudgetList budgets={budgets} handleOpenBottomSheet={handleOpenBottomSheet} />
             <BottomSheetModal
-                handleComponent={null}
-                handleIndicatorStyle={{display: 'none'}}
+                // handleComponent={null}
+                // handleIndicatorStyle={{display: 'none'}}
                 backdropComponent={renderBackdrop}
                 ref={bottomSheetModalRef}
                 snapPoints={snapPoints}
-                backgroundStyle={{borderRadius: 0}}
+                // backgroundStyle={{borderRadius: 0}}
             >   
                 <SelectButton selectSuccessCallback={selectSuccessCallback} selectedBudget={selectedBudget}  />
                 <ExportButton selectSuccessCallback={selectSuccessCallback} selectedBudget={selectedBudget}  />

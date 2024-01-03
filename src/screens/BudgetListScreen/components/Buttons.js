@@ -72,7 +72,7 @@ export const DeleteBudgetButton = ({
   return (
     <TouchableOpacity style={styles.bottomSheetButton} onPress={confirmDelete}>
       <View style={styles.bottomSheetButtonTextContainer}>
-        <Icon name="delete" size={moderateScale(24)} />
+        <Icon name="delete" size={moderateScale(24)} color="red" />
         <Text style={styles.bottomSheetButtonText}>Delete Budget</Text>
       </View>
     </TouchableOpacity>
@@ -113,8 +113,12 @@ export const SelectButton = ({selectSuccessCallback, selectedBudget}) => {
   return (
     <TouchableOpacity style={styles.bottomSheetButton} onPress={selectBudget}>
       <View style={styles.bottomSheetButtonTextContainer}>
-        <Icon name="cursor-pointer" size={moderateScale(24)} />
-        <Text style={styles.bottomSheetButtonText}>Select</Text>
+        <Icon
+          name="cursor-default-click"
+          size={moderateScale(24)}
+          color="black"
+        />
+        <Text style={styles.bottomSheetButtonText}>Select as active</Text>
       </View>
     </TouchableOpacity>
   );
@@ -168,9 +172,10 @@ export const ExportButton = ({selectSuccessCallback, selectedBudget}) => {
             });
           })
           .catch(e => console.log(e));
-      } else {
-        shareAsync(uri);
       }
+      // else {
+      //   shareAsync(uri);
+      // }
     } else {
       shareAsync(uri, {UTI: 'public.comma-separated-values-text'});
     }
@@ -200,7 +205,7 @@ export const ExportButton = ({selectSuccessCallback, selectedBudget}) => {
   return (
     <TouchableOpacity style={styles.bottomSheetButton} onPress={exportBudget}>
       <View style={styles.bottomSheetButtonTextContainer}>
-        <Icon name="download" size={moderateScale(24)} />
+        <Icon name="download" size={moderateScale(24)} color="black" />
         <Text style={styles.bottomSheetButtonText}>Export</Text>
       </View>
     </TouchableOpacity>
@@ -210,17 +215,19 @@ export const ExportButton = ({selectSuccessCallback, selectedBudget}) => {
 const styles = StyleSheet.create({
   budgetCardTextContainer: {paddingHorizontal: scale(4)},
   bottomSheetButton: {
-    paddingVertical: verticalScale(16),
+    paddingVertical: verticalScale(14),
   },
   bottomSheetButtonTextContainer: {
     display: 'flex',
     alignItems: 'center',
     flexDirection: 'row',
     paddingHorizontal: scale(12),
-    gap: scale(25),
+    gap: scale(12),
   },
   bottomSheetButtonText: {
     fontSize: moderateScale(16),
     color: 'black',
+    fontWeight: '300',
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli'}),
   },
 });

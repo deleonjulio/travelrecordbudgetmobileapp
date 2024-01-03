@@ -394,9 +394,10 @@ const styles = StyleSheet.create({
     letterSpacing: scale(0.5),
     fontSize: moderateScale(24),
     color: isDarkMode ? 'white' : 'black',
-    fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: verticalScale(2),
+    fontWeight: '600',
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'}),
   }),
   button: {
     backgroundColor: 'black',
@@ -419,11 +420,14 @@ const styles = StyleSheet.create({
   dateInText: ({isDarkMode = false}) => ({
     color: isDarkMode ? '#7f7f7f' : 'gray',
     fontSize: moderateScale(16),
+    fontWeight: '400',
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'}),
   }),
   totalExpense: ({isDarkMode = false}) => ({
     color: isDarkMode ? 'white' : 'black',
     fontSize: moderateScale(17),
-    fontWeight: '700',
+    fontWeight: '600',
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'}),
   }),
   transactionListHeaderContainer: {
     paddingHorizontal: scale(14),

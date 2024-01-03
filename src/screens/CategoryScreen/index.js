@@ -149,18 +149,18 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(14),
     fontWeight: '400',
     color: 'gray',
-    // fontFamily: 'Muli-SemiBold'
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'})
   },
   boldText: {
     color: 'black', 
-    fontWeight: '600', 
-    fontSize: moderateScale(18), 
-    ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'})
+    fontWeight: '500', 
+    fontSize: moderateScale(18),
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'})
   },
   transactionCount: {
     color: 'gray',
-    fontWeight: '600', 
-    fontSize: moderateScale(14), 
+    fontWeight: '400', 
+    fontSize: moderateScale(14),
     // fontFamily: 'Muli-SemiBold'
   }
 });
