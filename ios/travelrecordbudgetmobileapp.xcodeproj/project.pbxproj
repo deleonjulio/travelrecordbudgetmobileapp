@@ -12,18 +12,18 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.a */; };
-		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		2564DAA7D89A4436A19F8E79 /* Muli-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4431957AFD5A45B8822FA8EA /* Muli-Italic.ttf */; };
+		28F9EE2F164E4EF0A68AF5B1 /* Muli-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C308CAD174F148B4B64ACD2F /* Muli-LightItalic.ttf */; };
+		2AACC63DFE454B6E8581D006 /* Muli-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470189639CE4499D8D0ADBAA /* Muli-Light.ttf */; };
 		301FD68E2F0C4F5F99718DB1 /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1CD11672EC154B8096CDDCEA /* Muli-Bold.ttf */; };
 		5BDD261766A34005ACEE8C9F /* Muli-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B92B4C83CAA34056B11FCFF3 /* Muli-BoldItalic.ttf */; };
-		740C6E7250BB46708C8BDCA8 /* Muli-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470184C1C3B742C58F13051A /* Muli-ExtraLight.ttf */; };
 		5D3E6BBF8E4C418EADB41D1B /* Muli-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 701AB499F6614723882E4EC0 /* Muli-ExtraLightItalic.ttf */; };
-		2564DAA7D89A4436A19F8E79 /* Muli-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4431957AFD5A45B8822FA8EA /* Muli-Italic.ttf */; };
-		2AACC63DFE454B6E8581D006 /* Muli-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470189639CE4499D8D0ADBAA /* Muli-Light.ttf */; };
-		28F9EE2F164E4EF0A68AF5B1 /* Muli-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C308CAD174F148B4B64ACD2F /* Muli-LightItalic.ttf */; };
-		5F282F3C1E9B40FF8373267C /* Muli-Semi-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8E3F2D343E34ECDAABEA1D0 /* Muli-Semi-BoldItalic.ttf */; };
-		EAE0DE131D814F4F937D15D8 /* Muli-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88FEE607A9C24478BC80CC51 /* Muli-SemiBold.ttf */; };
 		5DA60B8CC1CC438F94F876BD /* Muli.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B17901ABAA354378AD832FB2 /* Muli.ttf */; };
+		5F282F3C1E9B40FF8373267C /* Muli-Semi-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8E3F2D343E34ECDAABEA1D0 /* Muli-Semi-BoldItalic.ttf */; };
+		740C6E7250BB46708C8BDCA8 /* Muli-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 470184C1C3B742C58F13051A /* Muli-ExtraLight.ttf */; };
+		7699B88040F8A987B510C191 /* libPods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.a */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		EAE0DE131D814F4F937D15D8 /* Muli-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 88FEE607A9C24478BC80CC51 /* Muli-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,23 +47,23 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = travelrecordbudgetmobileapp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = travelrecordbudgetmobileapp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CD11672EC154B8096CDDCEA /* Muli-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-Bold.ttf"; path = "../assets/fonts/Muli-Bold.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-travelrecordbudgetmobileapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelrecordbudgetmobileapp.debug.xcconfig"; path = "Target Support Files/Pods-travelrecordbudgetmobileapp/Pods-travelrecordbudgetmobileapp.debug.xcconfig"; sourceTree = "<group>"; };
+		4431957AFD5A45B8822FA8EA /* Muli-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-Italic.ttf"; path = "../assets/fonts/Muli-Italic.ttf"; sourceTree = "<group>"; };
+		470184C1C3B742C58F13051A /* Muli-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-ExtraLight.ttf"; path = "../assets/fonts/Muli-ExtraLight.ttf"; sourceTree = "<group>"; };
+		470189639CE4499D8D0ADBAA /* Muli-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-Light.ttf"; path = "../assets/fonts/Muli-Light.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-travelrecordbudgetmobileapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelrecordbudgetmobileapp.release.xcconfig"; path = "Target Support Files/Pods-travelrecordbudgetmobileapp/Pods-travelrecordbudgetmobileapp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.debug.xcconfig"; path = "Target Support Files/Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests/Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-travelrecordbudgetmobileapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-travelrecordbudgetmobileapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		701AB499F6614723882E4EC0 /* Muli-ExtraLightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-ExtraLightItalic.ttf"; path = "../assets/fonts/Muli-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = travelrecordbudgetmobileapp/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		88FEE607A9C24478BC80CC51 /* Muli-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-SemiBold.ttf"; path = "../assets/fonts/Muli-SemiBold.ttf"; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.release.xcconfig"; path = "Target Support Files/Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests/Pods-travelrecordbudgetmobileapp-travelrecordbudgetmobileappTests.release.xcconfig"; sourceTree = "<group>"; };
+		B17901ABAA354378AD832FB2 /* Muli.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Muli.ttf; path = ../assets/fonts/Muli.ttf; sourceTree = "<group>"; };
+		B92B4C83CAA34056B11FCFF3 /* Muli-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-BoldItalic.ttf"; path = "../assets/fonts/Muli-BoldItalic.ttf"; sourceTree = "<group>"; };
+		C308CAD174F148B4B64ACD2F /* Muli-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-LightItalic.ttf"; path = "../assets/fonts/Muli-LightItalic.ttf"; sourceTree = "<group>"; };
+		C8E3F2D343E34ECDAABEA1D0 /* Muli-Semi-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Muli-Semi-BoldItalic.ttf"; path = "../assets/fonts/Muli-Semi-BoldItalic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		1CD11672EC154B8096CDDCEA /* Muli-Bold.ttf */ = {isa = PBXFileReference; name = "Muli-Bold.ttf"; path = "../assets/fonts/Muli-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B92B4C83CAA34056B11FCFF3 /* Muli-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Muli-BoldItalic.ttf"; path = "../assets/fonts/Muli-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		470184C1C3B742C58F13051A /* Muli-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Muli-ExtraLight.ttf"; path = "../assets/fonts/Muli-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		701AB499F6614723882E4EC0 /* Muli-ExtraLightItalic.ttf */ = {isa = PBXFileReference; name = "Muli-ExtraLightItalic.ttf"; path = "../assets/fonts/Muli-ExtraLightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4431957AFD5A45B8822FA8EA /* Muli-Italic.ttf */ = {isa = PBXFileReference; name = "Muli-Italic.ttf"; path = "../assets/fonts/Muli-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		470189639CE4499D8D0ADBAA /* Muli-Light.ttf */ = {isa = PBXFileReference; name = "Muli-Light.ttf"; path = "../assets/fonts/Muli-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C308CAD174F148B4B64ACD2F /* Muli-LightItalic.ttf */ = {isa = PBXFileReference; name = "Muli-LightItalic.ttf"; path = "../assets/fonts/Muli-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C8E3F2D343E34ECDAABEA1D0 /* Muli-Semi-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Muli-Semi-BoldItalic.ttf"; path = "../assets/fonts/Muli-Semi-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		88FEE607A9C24478BC80CC51 /* Muli-SemiBold.ttf */ = {isa = PBXFileReference; name = "Muli-SemiBold.ttf"; path = "../assets/fonts/Muli-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B17901ABAA354378AD832FB2 /* Muli.ttf */ = {isa = PBXFileReference; name = "Muli.ttf"; path = "../assets/fonts/Muli.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +170,7 @@
 			sourceTree = "<group>";
 		};
 		EA4561F924274631A56D6732 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				1CD11672EC154B8096CDDCEA /* Muli-Bold.ttf */,
 				B92B4C83CAA34056B11FCFF3 /* Muli-BoldItalic.ttf */,
@@ -184,8 +184,8 @@
 				B17901ABAA354378AD832FB2 /* Muli.ttf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
 			path = "";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
