@@ -1,0 +1,45 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Muli-Bold.ttf",
+      "sha1": "a1dffa6c71615fb4bdd2140aad896139a220728e"
+    },
+    {
+      "path": "assets/fonts/Muli-BoldItalic.ttf",
+      "sha1": "e5ecf53bcbdaf58376db2416ff194cf2177d29de"
+    },
+    {
+      "path": "assets/fonts/Muli-ExtraLight.ttf",
+      "sha1": "594ed3d1fde5fd63e986a91e337dcfb77dc643a0"
+    },
+    {
+      "path": "assets/fonts/Muli-ExtraLightItalic.ttf",
+      "sha1": "bd9ed57a872ed7b405aeb594a322a2c9dfb004db"
+    },
+    {
+      "path": "assets/fonts/Muli-Italic.ttf",
+      "sha1": "ab00265eeb879c519d2db6f283a849780b9131eb"
+    },
+    {
+      "path": "assets/fonts/Muli-Light.ttf",
+      "sha1": "e243581e5411c8752013a7f8f237b541e027e9d4"
+    },
+    {
+      "path": "assets/fonts/Muli-LightItalic.ttf",
+      "sha1": "09912a37e797412b91d2f1491792f681caca8f52"
+    },
+    {
+      "path": "assets/fonts/Muli-Semi-BoldItalic.ttf",
+      "sha1": "0f50dea9308db10d173de07f2a6d123a41a33e57"
+    },
+    {
+      "path": "assets/fonts/Muli-SemiBold.ttf",
+      "sha1": "58e12c06ff936c0a1a76e6a747a9f0b6f4c7d07e"
+    },
+    {
+      "path": "assets/fonts/Muli.ttf",
+      "sha1": "aa2edf77d86fff82790b846917772837828e4902"
+    }
+  ]
+}
