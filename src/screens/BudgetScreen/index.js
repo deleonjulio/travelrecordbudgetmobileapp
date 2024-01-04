@@ -19,6 +19,7 @@ import {IndividualTransactions} from './components/IndividualTransactions';
 import {useTheme} from '../../context';
 import {useIsDarkMode} from '../../hooks/useIsDarkMode';
 import {Text} from '../../components';
+import {FAB} from 'react-native-paper';
 
 export const BudgetScreen = ({navigation}) => {
   const contextTheme = useTheme();
@@ -146,26 +147,15 @@ export const BudgetScreen = ({navigation}) => {
             />
           )}
           {groupedTransactions.length > 0 && (
-            <TouchableOpacity
-              style={{
-                position: 'absolute',
-                bottom: verticalScale(12),
-                right: scale(24),
-                borderColor: 'black',
-                backgroundColor: 'white',
-                elevation: 5,
-                borderWidth: 1,
-                borderColor: 'gray',
-                padding: 14,
-                borderRadius: 999,
-              }}
+            <FAB
+              icon="plus"
+              style={styles.fab}
               onPress={() =>
                 navigation.navigate('CreateTransactionScreen', {
                   budgetId: selectedBudget?._id.toString(),
                 })
-              }>
-              <Icon name="plus" color={'black'} size={moderateScale(24)} />
-            </TouchableOpacity>
+              }
+            />
           )}
         </View>
       </View>
@@ -446,4 +436,11 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(14),
     color: isDarkMode ? 'white' : 'black',
   }),
+  fab: {
+    position: 'absolute',
+    margin: moderateScale(16),
+    backgroundColor: 'white',
+    right: 0,
+    bottom: 0,
+  },
 });
