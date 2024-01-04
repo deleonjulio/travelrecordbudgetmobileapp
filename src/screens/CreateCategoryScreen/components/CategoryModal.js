@@ -41,6 +41,7 @@ export const CategoryModal = memo(function CategoryModal({show, setShow, selecte
           {
             selectedTab === 'category' ? (
               <FlatList
+                key={1}
                 data={ICONS}
                 keyExtractor={(item) => item.name}
                 renderItem={({ item }) => <ListItemCategory item={item} selectedIcon={selectedIcon} setSelectedIcon={setSelectedIcon} selectedColor={selectedColor} />}
@@ -49,6 +50,7 @@ export const CategoryModal = memo(function CategoryModal({show, setShow, selecte
               />
             ) : (
               <FlatList
+                keh={2}
                 showsVerticalScrollIndicator
                 data={CATEGORY_COLOR}
                 keyExtractor={(item) => item.iconColor}
@@ -137,6 +139,7 @@ const styles = StyleSheet.create({
   }),
   buttonText: {
     fontSize: moderateScale(14),
-    fontFamily: 'Muli-Bold'
+    fontFamily: 'Muli-Bold',
+    color: 'black'
   }
 });

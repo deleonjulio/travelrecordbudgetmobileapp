@@ -39,7 +39,7 @@ const generalOption = [
   {
     title: 'Privacy policy',
     icon: 'security',
-    screen: null
+    screen: 'PrivacyPolicyScreen'
   },
 ]
 
@@ -54,7 +54,7 @@ const DeleteAllDataOption = ({navigation}) => {
     });
   };
 
-  const confirmDeletion = () => Alert.alert('Delete All Data', 'Are you sure you want to delete all data?', [
+  const confirmDeletion = () => Alert.alert('Delete all data', 'Are you sure you want to delete all data? This action cannot be undone.', [
     {
       text: 'Cancel',
       onPress: () => console.log('Cancel Pressed'),
@@ -71,7 +71,7 @@ const DeleteAllDataOption = ({navigation}) => {
     <TouchableOpacity style={styles.optionContainer} onPress={() => confirmDeletion()}>
       <View style={styles.iconTextContainer}>
         <Icon name="delete-forever" size={moderateScale(28)} color={'red'} />
-        <Text style={[styles.optionText, { color: 'red' }]}>Delete All Data</Text>
+        <Text style={[styles.optionText, { color: 'red' }]}>Delete all data</Text>
       </View>
       {/* <Icon name="chevron-right" size={moderateScale(28)} color={'red'}  /> */}
     </TouchableOpacity>
@@ -118,9 +118,9 @@ export const SettingsScreen = ({navigation}) => {
         })} */}
 
         {/* <Text style={[isDarkMode ? styles.titleDark : styles.title, styles.separator]}>Settings</Text> */}
-        {generalOption.map(({title, icon}) => {
+        {generalOption.map(({title, icon, screen}) => {
           return (
-            <Option key={title} title={title} icon={icon} isDarkMode={isDarkMode} />
+            <Option key={title} title={title} icon={icon} screen={screen} navigation={navigation} isDarkMode={isDarkMode} />
           )
         })}
         <DeleteAllDataOption navigation={navigation} />

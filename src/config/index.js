@@ -1,6 +1,8 @@
 import { DarkTheme } from "@react-navigation/native";
 
 
+export const PRIVACY_POLICY_URL = 'https://sites.google.com/view/pokedex-gen-i-privacy-policy/home'
+
 export const colors = {
   purple: "#966fd6",
   backgroundPrimaryDark: '#181818',

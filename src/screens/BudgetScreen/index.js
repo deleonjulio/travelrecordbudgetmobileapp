@@ -148,6 +148,7 @@ export const BudgetScreen = ({navigation}) => {
           )}
           {groupedTransactions.length > 0 && (
             <FAB
+              color="black"
               icon="plus"
               style={styles.fab}
               onPress={() =>
@@ -257,7 +258,6 @@ const BudgetAmount = memo(function BudgetAmount({
 const RecentTransactionEmpty = ({selectedBudgetId, addTransaction}) => {
   return (
     <View style={styles.bottomContainerEmpty}>
-      <Icon name="card-plus-outline" size={38} color={'black'} />
       <Text style={{fontSize: 22, color: 'black', marginTop: 8}}>
         No transactions
       </Text>
@@ -398,7 +398,9 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: 'white',
-    fontWeight: 'bold',
+    fontSize: moderateScale(14),
+    fontWeight: '600',
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'}),
   },
   budgetAmount: {
     flexDirection: 'row',

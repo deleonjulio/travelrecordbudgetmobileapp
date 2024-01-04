@@ -14,3 +14,4 @@ export * from './BudgetSearchTransactionScreen';
 export * from './AppearanceScreen';
 export * from './SecurityScreen';
 export * from './BiometricsScreen';
+export * from './PrivacyPolicyScreen';

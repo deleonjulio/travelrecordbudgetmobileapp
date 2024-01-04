@@ -21,7 +21,7 @@ export const CategoryArchiveButton = ({route}) => {
   }
 
   const confirmArchive = () =>
-    Alert.alert('Archive', 'Are you sure you want to archive this category?', [
+    Alert.alert('Delete', 'Are you sure you want to delete this category?', [
       {
         text: 'Cancel',
         onPress: () => console.log('Cancel Pressed'),

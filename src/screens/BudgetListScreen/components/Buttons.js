@@ -83,7 +83,7 @@ export const CloseButton = ({onPress}) => {
   return (
     <TouchableOpacity style={styles.bottomSheetButton} onPress={onPress}>
       <View style={styles.bottomSheetButtonTextContainer}>
-        <Icon name="close" size={moderateScale(24)} />
+        <Icon name="close" size={moderateScale(24)} color="black" />
         <Text style={styles.bottomSheetButtonText}>Close</Text>
       </View>
     </TouchableOpacity>

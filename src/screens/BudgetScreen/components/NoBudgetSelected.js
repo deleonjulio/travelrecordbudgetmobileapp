@@ -1,16 +1,16 @@
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Text, TouchableOpacity, Platform } from 'react-native'
 import { moderateScale, scale, verticalScale } from 'react-native-size-matters';
 import { useNavigation } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/FontAwesome6';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export const NoBudgetSelected = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Icon
-        name="money-bill-wave"
+        name="cash-multiple"
         color={'black'}
-        size={moderateScale(80)}
+        size={moderateScale(120)}
       />
       <Text style={styles.title}>You currently have no budget.</Text>
       <TouchableOpacity style={styles.createButton} onPress={() => navigation.navigate('CreateBudgetScreen')}>
@@ -32,7 +32,9 @@ const styles = StyleSheet.create({
   title: {
     color: 'black',
     fontSize: moderateScale(17),
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: '400',
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli'}),
   },
   createButton: {
     backgroundColor: 'black',
@@ -43,6 +45,7 @@ const styles = StyleSheet.create({
   createButtonText: {
     color: 'white',
     fontSize: moderateScale(16),
-    fontWeight: 'bold'
+    fontWeight: '600',
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'}),
   }
 })

@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
         color: 'black',
         fontFamily: 'Muli'
     },
-    calendarButton: {fontSize: moderateScale(14), fontFamily: 'Muli-Bold'},
+    calendarButton: {fontSize: moderateScale(14), fontFamily: 'Muli-Bold', color: 'black'},
     modalFooter: {flexDirection: 'row', justifyContent: 'space-around', paddingVertical: verticalScale(10), backgroundColor: 'white'}
   });
   

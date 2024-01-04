@@ -22,7 +22,7 @@ export const BudgetArchiveButton = ({route}) => {
   }
 
   const confirmArchive = () =>
-    Alert.alert('Archive Budget', 'Are you sure you want to archive this budget?', [
+    Alert.alert('Delete', 'Are you sure you want to delete this budget?', [
       {
         text: 'Cancel',
         onPress: () => console.log('Cancel Pressed'),

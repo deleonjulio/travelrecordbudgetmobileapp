@@ -19,6 +19,7 @@ import {
     SettingsScreen,
     CategoryTransactionListScreen,
     BudgetSearchTransactionScreen,
+    PrivacyPolicyScreen
     // SecurityScreen,
     // BiometricsScreen
     // AppearanceScreen
@@ -280,6 +281,15 @@ export const Navigation = () => {
           options={({route}) => ({
             headerTintColor: isDarkMode ? 'white' : 'black',
             headerTitle: 'Transaction History',
+            animation: 'fade_from_bottom',
+          })}
+      />
+      <Stack.Screen
+          name="PrivacyPolicyScreen"
+          component={PrivacyPolicyScreen}
+          options={({route}) => ({
+            headerTintColor: isDarkMode ? 'white' : 'black',
+            headerTitle: 'Privacy Policy',
             animation: 'fade_from_bottom',
           })}
       />
