@@ -146,7 +146,7 @@ export const ExportButton = ({selectSuccessCallback, selectedBudget}) => {
         category?._id.toString() === transaction.categoryId.toString(),
     );
     return {
-      category: categoryInfo.name,
+      category: categoryInfo?.name,
       amount: transaction.amount / 100,
       description: transaction.description,
       date: dayjs(transaction.transactionDate).format('YYYY-MM-DD').toString(),
