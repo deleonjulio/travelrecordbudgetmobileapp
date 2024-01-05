@@ -78,7 +78,7 @@ export const CategoryTransactionListScreen = ({navigation, route}) => {
             <View style={styles.card({backgroundColor})}>
               <Icon
                 name={categoryIcon ? categoryIcon : 'progress-question'}
-                size={moderateScale(36)}
+                size={moderateScale(30)}
                 color={iconColor}
               />
             </View>
@@ -194,9 +194,12 @@ const styles = StyleSheet.create({
     ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'}),
   },
   card: ({backgroundColor}) => ({
-    backgroundColor: backgroundColor ? backgroundColor : 'whitesmoke',
-    paddingHorizontal: verticalScale(14),
-    paddingVertical: verticalScale(14),
-    borderRadius: moderateScale(8),
+    backgroundColor: 'white',
+    // padding: moderateScale(14), 
+    paddingHorizontal: moderateScale(18),
+    paddingVertical: moderateScale(18),
+    borderRadius: moderateScale(999),
+    borderWidth: moderateScale(0.5),
+    borderColor: 'lightgray',
   }),
 });

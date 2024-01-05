@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
   },
   percentage: {
-    fontSize: moderateScale(14),
+    fontSize: moderateScale(12),
     fontWeight: '400',
     color: 'gray',
     ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'})
@@ -154,13 +154,13 @@ const styles = StyleSheet.create({
   boldText: {
     color: 'black', 
     fontWeight: '500', 
-    fontSize: moderateScale(18),
-    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'})
+    fontSize: moderateScale(16),
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'})
   },
   transactionCount: {
     color: 'gray',
     fontWeight: '400', 
-    fontSize: moderateScale(14),
+    fontSize: moderateScale(12),
     // fontFamily: 'Muli-SemiBold'
   }
 });

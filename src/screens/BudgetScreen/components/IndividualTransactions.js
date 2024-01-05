@@ -19,8 +19,8 @@ export const IndividualTransactions = memo(function IndividualTransactions({tran
             <View renderToHardwareTextureAndroid style={{flex: 0.6, flexDirection: 'row', alignItems: 'center', columnGap: scale(12)}}>
               <IconCard icon={item.icon} iconColor={item.iconColor} backgroundColor={item.backgroundColor} />
               <View style={{flex: 1}}>
-                <Text numberOfLines={2} ellipsizeMode='tail' style={styles.categoryName({isDarkMode})}>{item.categoryName ? item.categoryName : '---'}</Text>
                 <Text numberOfLines={2} ellipsizeMode='tail' style={styles.description({isDarkMode})}>{item.description || '---'}</Text>
+                <Text numberOfLines={2} ellipsizeMode='tail' style={styles.categoryName({isDarkMode})}>{item.categoryName ? item.categoryName : '---'}</Text>
               </View>
             </View>
             <View style={{flex: 0.4, alignItems: 'flex-end', justifyContent: 'center'}}>
@@ -44,16 +44,16 @@ const styles = StyleSheet.create({
     rowGap: verticalScale(4),
   }),
   categoryName: ({isDarkMode = false}) => ({
-    color: isDarkMode ? 'white' : 'black',
-    fontWeight: '600',
-    fontSize: moderateScale(16),
-    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'}),
-  }),
-  description: ({isDarkMode = false}) => ({
     color: isDarkMode ? '#7f7f7f' : 'gray',
     fontWeight: '400',
     fontSize: moderateScale(14),
     ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'}),
+  }),
+  description: ({isDarkMode = false}) => ({
+    color: isDarkMode ? 'white' : 'black',
+    fontWeight: '600',
+    fontSize: moderateScale(16),
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'}),
   }),
   amount: ({isDarkMode = false}) => ({
     color: isDarkMode ? 'white' : 'black',

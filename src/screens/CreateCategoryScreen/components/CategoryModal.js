@@ -87,7 +87,7 @@ const ListItemColor = memo(function ListItem({ item, selectedIcon, selectedColor
   return (
     <TouchableOpacity style={{ width: '25%'}} onPress={() => setSelectedColor({...item})}>
       <View renderToHardwareTextureAndroid style={{flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <View style={[styles.cardColor({backgroundColor: item.backgroundColor}), { borderColor: selectedColor.iconColor === item.iconColor ?  'black' : item.backgroundColor }]}>
+        <View style={[styles.cardColor({backgroundColor: 'white'}), { borderColor: selectedColor.iconColor === item.iconColor ?  'black' : 'lightgray' }]}>
          <Icon name={selectedIcon} size={moderateScale(28)} color={item.iconColor} />
         </View>
         <Text />
@@ -111,15 +111,15 @@ const styles = StyleSheet.create({
   },
   cardCategory:({backgroundColor}) => ({
     padding: moderateScale(14), 
-    borderRadius: moderateScale(8),
-    borderWidth: moderateScale(1), 
+    borderRadius: moderateScale(999),
+    borderWidth: moderateScale(0.5), 
     borderColor: 'lightgray',
     backgroundColor: backgroundColor
   }),
   cardColor:({backgroundColor}) => ({
     padding: moderateScale(14), 
-    borderRadius: moderateScale(8),
-    borderWidth: moderateScale(1), 
+    borderRadius: moderateScale(999),
+    borderWidth: moderateScale(0.5), 
     // borderColor: 'gray',
     backgroundColor: backgroundColor
   }),
