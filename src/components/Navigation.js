@@ -249,11 +249,12 @@ export const Navigation = () => {
       <Stack.Screen
           name="CreateTransactionScreen"
           component={CreateTransactionScreen}
-          options={{
+          options={({route}) => ({
             headerTintColor: isDarkMode ? 'white' : 'black',
-            headerTitle: 'Create Transaction',
+            title: 'Create Transaction',
             animation: 'fade_from_bottom',
-          }}
+            headerRight: () => <TransactionArchiveButton route={route} />,
+          })}
       />
       <Stack.Screen
           name="UpdateTransactionScreen"

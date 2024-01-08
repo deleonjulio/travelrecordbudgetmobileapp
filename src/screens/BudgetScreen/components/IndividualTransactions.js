@@ -14,7 +14,7 @@ export const IndividualTransactions = memo(function IndividualTransactions({tran
       renderItem={({item}) => {
         return (
           <TouchableOpacity style={styles.individualTransactionContainer({isDarkMode})} onPress={() => {
-            navigation.navigate('UpdateTransactionScreen', {transactionId: item?._id.toString()})
+            navigation.navigate('CreateTransactionScreen', {transactionId: item?._id.toString()})
           }}>
             <View renderToHardwareTextureAndroid style={{flex: 0.6, flexDirection: 'row', alignItems: 'center', columnGap: scale(12)}}>
               <IconCard icon={item.icon} iconColor={item.iconColor} backgroundColor={item.backgroundColor} />

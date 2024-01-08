@@ -1,47 +1,58 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import 'react-native-get-random-values';
 import {moderateScale} from 'react-native-size-matters';
 import {Typography, Input, CurrencyInput, DropDownPicker, CalendarDatePicker} from '../../components';
 import { RealmContext } from '../../realm/RealmWrapper';
-import { Category } from '../../realm/Schema';
+import { Category, Transaction } from '../../realm/Schema';
 import Realm from 'realm';
 import dayjs from 'dayjs';
 
 export const CreateTransactionScreen = ({route, navigation}) => {
-  const {budgetId} = route.params;
 
-  const { useRealm, useQuery} = RealmContext
+  const amountRef = useRef(null);
+
+  const {budgetId, transactionId} = route.params;
+
+  const { useRealm, useQuery, useObject } = RealmContext
   const realm = useRealm()
+
+  const transactionToBeEdited = transactionId && useObject(Transaction, new Realm.BSON.ObjectId(transactionId));
 
   const categories = useQuery(Category, categories => {
     return categories.sorted('dateCreated', true)
   })
-  
-  const amountRef = useRef(null);
 
-  const [amount, setAmount] = useState(0);
-  const [category, setCategory] = useState(null);
-  const [description, setDescription] = useState('');
-  const [transactionDate, setTransactionDate] = useState(new Date());
+  const [categoryList, setCategoryList] = useState(categories.map(({_id, name}) => ({label: name, value: _id.toString()})));
+  
+  const [amount, setAmount] = useState(transactionToBeEdited ? (transactionToBeEdited?.amount / 100).toString() : 0);
+  const [category, setCategory] = useState(transactionToBeEdited ? transactionToBeEdited?.categoryId?.toString() : null);
+  const [description, setDescription] = useState(transactionToBeEdited ? transactionToBeEdited?.description : '');
+  const [transactionDate, setTransactionDate] = useState(transactionToBeEdited ? new Date(transactionToBeEdited?.transactionDate) : new Date());
 
   const [open, setOpen] = useState(false);
-  const [categoryList, setCategoryList] = useState(categories.map(({_id, name}) => ({label: name, value: _id})));
 
   const onSubmit = async () => {
     const amountInCents = Math.round(Number(amount) * 100);
-    const newTransaction = {
-      budgetId: new Realm.BSON.ObjectId(budgetId),
-      categoryId: category,
-      amount: amountInCents,
-      description,
-      transactionDate: dayjs(transactionDate).startOf('day').toString(),
-      dateCreated: new Date()
-    };
 
     try {
       realm.write(() => {
-        realm.create('Transaction', newTransaction)
+        if(transactionId) {
+          transactionToBeEdited.amount = amountInCents
+          transactionToBeEdited.categoryId = category ? new Realm.BSON.ObjectId(category) : null
+          transactionToBeEdited.description = description
+          transactionToBeEdited.transactionDate = dayjs(transactionDate).startOf('day').toString()
+        } else {
+          const newTransaction = {
+            budgetId: new Realm.BSON.ObjectId(budgetId),
+            categoryId: new Realm.BSON.ObjectId(category),
+            amount: amountInCents,
+            description,
+            transactionDate: dayjs(transactionDate).startOf('day').toString(),
+            dateCreated: new Date()
+          };
+          realm.create('Transaction', newTransaction)
+        }
         navigation.goBack()
       });
 
@@ -49,6 +60,12 @@ export const CreateTransactionScreen = ({route, navigation}) => {
       console.log(error, 'Error create transaction')
     }
   };
+
+  useEffect(() => {
+    if(transactionId) {
+      navigation.setOptions({ title: 'Update Transaction' })
+    }
+  }, [transactionId])
 
   return (
     <SafeAreaView>
@@ -59,7 +76,7 @@ export const CreateTransactionScreen = ({route, navigation}) => {
             ref={amountRef}
             value={amount}
             onChangeValue={setAmount}
-            onLayout={() => amountRef.current.focus()} 
+            onLayout={() => !transactionId && amountRef.current.focus()} 
           />
         </View>
         <View>

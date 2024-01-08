@@ -8,10 +8,12 @@ import { Transaction } from '../../realm/Schema';
 import Realm from 'realm';
 
 export const TransactionArchiveButton = ({route}) => {
+  const {transactionId} = route.params;
+
   const navigation = useNavigation();
   const { useRealm, useObject } = RealmContext
   const realm = useRealm()
-  const transactionToBeArchive = useObject(Transaction, new Realm.BSON.ObjectId(route.params.transactionId));
+  const transactionToBeArchive = transactionId && useObject(Transaction, new Realm.BSON.ObjectId(transactionId));
 
   const archiveTransaction = () => {
     realm.write(() => {
@@ -34,9 +36,11 @@ export const TransactionArchiveButton = ({route}) => {
       },
     ]);
 
-  return (
-    <TouchableOpacity onPress={confirmArchive}>
-      <Icon name="delete" color="black" size={moderateScale(24)} />
-    </TouchableOpacity>
-  );
-};
+    if(transactionId) {
+      return (
+        <TouchableOpacity onPress={confirmArchive}>
+          <Icon name="delete" color="black" size={moderateScale(24)} />
+        </TouchableOpacity>
+      );
+    };
+}

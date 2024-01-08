@@ -25,7 +25,6 @@ export const DropDownPicker = ({open, setOpen, value, setValue, items, setItems}
   )
 }
 
-
 const styles = StyleSheet.create({
   textStyle: {
     fontSize: moderateScale(16),
