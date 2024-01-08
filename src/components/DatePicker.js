@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
   },
   btn: {height: '100%', justifyContent: 'center', width: '100%'},
   container: {
+    backgroundColor: 'whitesmoke',
     borderRadius: verticalScale(8),
     borderWidth: 1,
     borderColor: colors.inputBorder,

@@ -7,3 +7,4 @@ export * from './DropDownPicker';
 export * from './IconCard';
 export * from './Text';
 export * from './Calendar';
+export * from './CalendarDatePicker';

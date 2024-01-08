@@ -1,8 +1,8 @@
 import React, {useState, useRef} from 'react';
 import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import 'react-native-get-random-values';
-import {scale, verticalScale, moderateScale} from 'react-native-size-matters';
-import {DatePicker, Typography, Input, CurrencyInput, DropDownPicker} from '../../components';
+import {moderateScale} from 'react-native-size-matters';
+import {Typography, Input, CurrencyInput, DropDownPicker, CalendarDatePicker} from '../../components';
 import { RealmContext } from '../../realm/RealmWrapper';
 import { Category } from '../../realm/Schema';
 import Realm from 'realm';
@@ -84,7 +84,7 @@ export const CreateTransactionScreen = ({route, navigation}) => {
         </View>
         <View>
           <Typography text="Transaction Date" type="text-input" />
-          <DatePicker value={transactionDate} setValue={setTransactionDate} />
+          <CalendarDatePicker value={transactionDate} setValue={setTransactionDate} />
         </View>
         <TouchableOpacity style={styles.button} onPress={() => onSubmit()}>
           <Text style={styles.buttonText}>Save</Text>

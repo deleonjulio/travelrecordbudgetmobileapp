@@ -22,6 +22,7 @@ export const CurrencyInput = forwardRef(({value, onChangeValue, ...rest}, ref) =
 
 const styles = StyleSheet.create({
   currencyInput: {
+    backgroundColor: 'white',
     color: 'black',
     borderWidth: verticalScale(1),
     borderRadius: moderateScale(8),

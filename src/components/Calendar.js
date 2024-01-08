@@ -83,10 +83,6 @@ export const Calendar = memo(function Calender({show, setShow, date, setDate}) {
                 for (let index = 1; index < dayDifference; index++) {
                     datesBetween[getDate(index)] = {color: 'gray', textColor: 'white'}
                 }
-                
-                // console.log(startingDay, 'start')
-                // console.log(JSON.stringify(datesBetween, undefined, 2), 'between')
-                // console.log(dateString, 'end')
 
                 return setCalendarDate({
                     [startingDay]: {startingDay: true, color: 'black', textColor: 'white'},
