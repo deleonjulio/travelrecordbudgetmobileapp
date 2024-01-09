@@ -15,7 +15,6 @@ import {
     UpdateBudgetScreen,
     BudgetListScreen,
     CreateTransactionScreen,
-    UpdateTransactionScreen,
     SettingsScreen,
     CategoryTransactionListScreen,
     BudgetSearchTransactionScreen,
@@ -252,16 +251,6 @@ export const Navigation = () => {
           options={({route}) => ({
             headerTintColor: isDarkMode ? 'white' : 'black',
             title: 'Create Transaction',
-            animation: 'fade_from_bottom',
-            headerRight: () => <TransactionArchiveButton route={route} />,
-          })}
-      />
-      <Stack.Screen
-          name="UpdateTransactionScreen"
-          component={UpdateTransactionScreen}
-          options={({route}) => ({
-            headerTintColor: isDarkMode ? 'white' : 'black',
-            headerTitle: 'Update Transaction',
             animation: 'fade_from_bottom',
             headerRight: () => <TransactionArchiveButton route={route} />,
           })}

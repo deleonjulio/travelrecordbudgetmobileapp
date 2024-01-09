@@ -8,7 +8,6 @@ export * from './UpdateCategoryScreen';
 export * from './UpdateBudgetScreen';
 export * from './BudgetListScreen';
 export * from './CreateTransactionScreen';
-export * from './UpdateTransactionScreen';
 export * from './CategoryTransactionListScreen';
 export * from './BudgetSearchTransactionScreen';
 export * from './AppearanceScreen';
