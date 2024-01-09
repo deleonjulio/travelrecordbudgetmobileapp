@@ -1,3 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable prettier/prettier */
 import { View, StyleSheet, FlatList, TouchableOpacity, Platform } from 'react-native'
 import { scale, moderateScale, verticalScale } from 'react-native-size-matters'
 import { moneyFormat } from '../../utils/helper'
@@ -99,6 +101,7 @@ const CategoryList = ({currency, grandTotalExpense, categories, navigation, isDa
       ListHeaderComponent={<TotalExpenseHeader currency={currency} grandTotalExpense={grandTotalExpense} />}
       showsVerticalScrollIndicator={false}
       bounces={false}
+      overScrollMode="never"
       data={categories}
       keyExtractor={(item) => item._id}
       renderItem={({ item }) => <ListItem currency={currency} item={item} navigation={navigation} isDarkMode={isDarkMode} />}

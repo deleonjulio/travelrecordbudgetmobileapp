@@ -122,6 +122,7 @@ const RecentTransactionList = memo(function RecentTransactionList({currency, gro
     <FlatList
       ListEmptyComponent={<NoTransactionFound />}
       bounces={false}
+      overScrollMode="never"
       showsVerticalScrollIndicator={false}
       data={groupedTransactions}
       keyExtractor={(item) => item.date}
