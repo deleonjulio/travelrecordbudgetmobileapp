@@ -13,7 +13,7 @@ export const IndividualTransactions = ({transactions, navigation, currency}) => 
       renderItem={({item}) => {
         return (
           <TouchableOpacity style={styles.individualTransactionContainer} onPress={() => {
-            navigation.navigate('UpdateTransactionScreen', {transactionId: item?._id.toString()})
+            navigation.navigate('CreateTransactionScreen', {transactionId: item?._id.toString()})
           }}>
               <View style={{flex: 1}}>
                 <Text numberOfLines={2} ellipsizeMode='tail' style={styles.description}>{item.description || '---'}</Text>

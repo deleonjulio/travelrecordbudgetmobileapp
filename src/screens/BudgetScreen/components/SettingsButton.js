@@ -22,7 +22,7 @@ export const SettingsButton = () => {
     return (
       <TouchableOpacity
         style={{paddingRight: 10}}
-        onPress={() => navigation.navigate('UpdateBudgetScreen', {
+        onPress={() => navigation.navigate('CreateBudgetScreen', {
           budgetId: selectedBudget?._id.toString()
         })}>
         <Icon name="square-edit-outline" size={moderateScale(32)} color={isDarkMode ? 'white' : 'black'} />

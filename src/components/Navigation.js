@@ -12,7 +12,6 @@ import {
     CategoryScreen,
     CreateCategoryScreen,
     UpdateCategoryScreen,
-    UpdateBudgetScreen,
     BudgetListScreen,
     CreateTransactionScreen,
     SettingsScreen,
@@ -200,11 +199,12 @@ export const Navigation = () => {
       <Stack.Screen
           name="CreateBudgetScreen"
           component={CreateBudgetScreen}
-          options={{
+          options={({route}) => ({
             headerTintColor: isDarkMode ? 'white' : 'black',
-            headerTitle: 'Create Budget',
+            title: 'Create Budget',
             animation: 'fade_from_bottom',
-          }}
+            headerRight: () => <BudgetArchiveButton route={route} />,
+          })}
       />
       <Stack.Screen
           name="CreateCategoryScreen"
@@ -223,16 +223,6 @@ export const Navigation = () => {
             headerTitle: 'Update Category',
             animation: 'fade_from_bottom',
             headerRight: () => <CategoryArchiveButton route={route} />,
-          })}
-      />
-      <Stack.Screen
-          name="UpdateBudgetScreen"
-          component={UpdateBudgetScreen}
-          options={({route}) => ({
-            headerTintColor: isDarkMode ? 'white' : 'black',
-            headerTitle: 'Update Budget',
-            animation: 'fade_from_bottom',
-            headerRight: () => <BudgetArchiveButton route={route} />,
           })}
       />
       <Stack.Screen

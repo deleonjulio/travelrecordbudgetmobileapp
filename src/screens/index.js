@@ -5,7 +5,6 @@ export * from './CreateBudgetScreen';
 export * from './CategoryScreen';
 export * from './CreateCategoryScreen';
 export * from './UpdateCategoryScreen';
-export * from './UpdateBudgetScreen';
 export * from './BudgetListScreen';
 export * from './CreateTransactionScreen';
 export * from './CategoryTransactionListScreen';

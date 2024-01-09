@@ -156,25 +156,15 @@ export const Calendar = memo(function Calender({show, setShow, date, setDate}) {
                             minDate={disableDate()}
                             markingType={'period'}
                             markedDates={calendarDate}
-                            theme={{
-                                textInactiveColor: '#a68a9f',
-                                textSectionTitleDisabledColor: 'grey',
-                                textSectionTitleColor: 'black',
-                                arrowColor: 'black',
-                                textMonthFontWeight: '600',
-                                textMonthFontFamily: 'Muli-Bold',
-                                textDayFontSize: moderateScale(17),
-                                textMonthFontSize: moderateScale(17),
-                                // textDayHeaderFontSize: moderateScale(14),
-                            }}
+                            theme={styles.calendar}
                             onDayPress={(day) => handleDateSelection(day.dateString)}
                         />
                         <View style={styles.modalFooter}>
-                            <TouchableOpacity onPress={() => closeCalender()} style={{backgroundColor: 'white', padding: moderateScale(8), backgroundColor: 'lightgray', borderRadius: moderateScale(4)}}>
-                                <Text style={styles.calendarButton}>Cancel</Text>
+                            <TouchableOpacity onPress={() => closeCalender()} style={styles.cancelButton}>
+                                <Text style={styles.cancelButtonText}>Cancel</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={() => handleSelectedDate()} style={{backgroundColor: 'white', padding: moderateScale(8), backgroundColor: 'lightgray', borderRadius: moderateScale(4)}}>
-                                <Text style={styles.calendarButton}>Confirm</Text>
+                            <TouchableOpacity onPress={() => handleSelectedDate()} style={styles.confirmButton}>
+                                <Text style={styles.confirmButtonText}>Confirm</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -207,6 +197,40 @@ const styles = StyleSheet.create({
         fontFamily: 'Muli'
     },
     calendarButton: {fontSize: moderateScale(14), fontFamily: 'Muli-Bold', color: 'black'},
-    modalFooter: {flexDirection: 'row', justifyContent: 'space-around', paddingVertical: verticalScale(10), backgroundColor: 'white'}
+    calendar: {
+        textInactiveColor: '#a68a9f',
+        textSectionTitleDisabledColor: 'grey',
+        textSectionTitleColor: 'black',
+        arrowColor: 'black',
+        textMonthFontWeight: '600',
+        textMonthFontFamily: 'Muli-Bold',
+        textDayFontSize: moderateScale(17),
+        textMonthFontSize: moderateScale(17),
+    },
+    modalFooter: {flexDirection: 'row', justifyContent: 'space-around', paddingVertical: verticalScale(10), backgroundColor: 'white'},
+    cancelButton: {
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: 'white', 
+        paddingVertical: scale(8),
+        marginLeft: scale(16),
+        marginRight: scale(6),
+        borderColor: 'gray',
+        borderWidth: moderateScale(0.5),
+        borderRadius: moderateScale(8)
+    },
+    cancelButtonText: {fontSize: moderateScale(15), fontFamily: 'Muli-Bold', color: 'black'},
+    confirmButton: {
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: 'black', 
+        paddingVertical: scale(8),
+        marginLeft: scale(6),
+        marginRight: scale(16),
+        borderColor: 'gray',
+        borderWidth: moderateScale(0.5),
+        borderRadius: moderateScale(8)
+    },
+    confirmButtonText: {fontSize: moderateScale(15), fontFamily: 'Muli-Bold', color: 'white'},
   });
   

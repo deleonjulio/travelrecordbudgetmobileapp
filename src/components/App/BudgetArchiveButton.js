@@ -1,17 +1,19 @@
-import React, { version } from 'react';
+import React from 'react';
 import {TouchableOpacity, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {scale, moderateScale, verticalScale} from 'react-native-size-matters';
+import {moderateScale} from 'react-native-size-matters';
 import {useNavigation} from '@react-navigation/native';
 import { RealmContext } from '../../realm/RealmWrapper';
 import { Budget } from '../../realm/Schema';
 import Realm from 'realm';
 
 export const BudgetArchiveButton = ({route}) => {
+  const {budgetId} = route.params || {};
+
   const navigation = useNavigation();
   const { useRealm, useObject } = RealmContext
   const realm = useRealm()
-  const budgetToBeArchive = useObject(Budget, new Realm.BSON.ObjectId(route.params.budgetId));
+  const budgetToBeArchive = useObject(Budget, new Realm.BSON.ObjectId(budgetId));
 
   const archiveBudget = () => {
     realm.write(() => {
@@ -35,9 +37,11 @@ export const BudgetArchiveButton = ({route}) => {
       },
     ]);
 
-  return (
-    <TouchableOpacity onPress={confirmArchive}>
-      <Icon name="delete" color="black" size={moderateScale(24)} />
-    </TouchableOpacity>
-  );
+  if(budgetId) {
+    return (
+      <TouchableOpacity onPress={confirmArchive}>
+        <Icon name="delete" color="black" size={moderateScale(24)} />
+      </TouchableOpacity>
+    );
+  }
 };

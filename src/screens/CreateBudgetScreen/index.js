@@ -1,23 +1,28 @@
-import React, {useState, useRef} from 'react';
+/* eslint-disable prettier/prettier */
+import React, {useState, useRef, useEffect} from 'react';
 import {View, Text, SafeAreaView, StyleSheet, Alert, TouchableOpacity} from 'react-native';
 import {moderateScale} from 'react-native-size-matters';
 import {CURRENCY_LIST} from '../../config';
 import {Input, Typography, CurrencyInput, DropDownPicker, Calendar} from '../../components';
 import { RealmContext } from '../../realm/RealmWrapper';
 import { Budget } from '../../realm/Schema';
+import Realm from 'realm';
 
-export const CreateBudgetScreen = ({navigation}) => {
+export const CreateBudgetScreen = ({route, navigation}) => {
+  const {budgetId} = route?.params || {};
+
   const nameRef = useRef(null);
 
-  const { useRealm, useQuery } = RealmContext
+  const { useRealm, useQuery, useObject} = RealmContext
   const realm = useRealm()
+  const budgetToBeUpdated = budgetId && useObject(Budget, new Realm.BSON.ObjectId(budgetId));
 
   const [showCalendar, setShowCalendar] = useState(false)
 
-  const [budgetName, setBudgetName] = useState('');
-  const [budgetAmount, setBudgetAmount] = useState(0);
-  const [date, setDate] = useState(null)
-  const [currency, setCurrency] = useState(null);
+  const [budgetName, setBudgetName] = useState(budgetToBeUpdated ? budgetToBeUpdated?.name : '');
+  const [budgetAmount, setBudgetAmount] = useState(budgetToBeUpdated ? (budgetToBeUpdated?.amount / 100).toString() : 0);
+  const [date, setDate] = useState(budgetToBeUpdated ? [budgetToBeUpdated.startDate, budgetToBeUpdated.endDate] : null)
+  const [currency, setCurrency] = useState(budgetToBeUpdated ? budgetToBeUpdated.currency : null);
 
   const [open, setOpen] = useState(false);
   const [currencyList, setCurrencyList] = useState(CURRENCY_LIST);
@@ -33,27 +38,35 @@ export const CreateBudgetScreen = ({navigation}) => {
 
     const amountInCents = Math.round(Number(budgetAmount) * 100);
 
-    const newBudget = {
-      name: budgetName,
-      amount: amountInCents,
-      currency,
-      selected: activeBudgets.length === 0 ? true : false,
-      startDate: new Date(date[0]),
-      endDate: new Date(date[1]),
-      dateCreated: new Date(),
-      archived: false
-    };
-
-    try {
       realm.write(() => {
-        realm.create('Budget', newBudget)
-        navigation.goBack()
+        if (budgetToBeUpdated) {
+          budgetToBeUpdated.name = budgetName
+          budgetToBeUpdated.amount = amountInCents
+          budgetToBeUpdated.startDate = new Date(date[0])
+          budgetToBeUpdated.endDate = new Date(date[1])
+          budgetToBeUpdated.currency = currency
+        } else {
+          const newBudget = {
+            name: budgetName,
+            amount: amountInCents,
+            currency,
+            selected: activeBudgets.length === 0 ? true : false,
+            startDate: new Date(date[0]),
+            endDate: new Date(date[1]),
+            dateCreated: new Date(),
+            archived: false
+          };
+          realm.create('Budget', newBudget)
+        }
+        navigation.goBack();
       });
-
-    } catch (error) {
-      console.log(error, 'Error create budget')
-    }
   };
+
+  useEffect(() => {
+    if(budgetId) {
+      navigation.setOptions({ title: 'Update Budget' })
+    }
+  }, [budgetId])
 
   return (
     <SafeAreaView>
@@ -65,7 +78,7 @@ export const CreateBudgetScreen = ({navigation}) => {
             setValue={e => setBudgetName(e)}
             value={budgetName}
             placeholder="Budget name"
-            onLayout={() => nameRef.current.focus()} 
+            onLayout={() => !budgetId && nameRef.current.focus()} 
           />
         </View>
         <View>
