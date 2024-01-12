@@ -187,13 +187,9 @@ const BudgetDaysLeft = memo(function BudgetDaysLeft({budget, isDarkMode}) {
   let daysLeftMessage = '';
   if (budget) {
     if (currentDate < new Date(budget.startDate)) {
-      daysLeftMessage = `Budget starts on ${
-        new Date(budget.startDate).toISOString().split('T')[0]
-      }`;
+      daysLeftMessage = `Budget starts on ${dayjs(budget.startDate).format('YYYY-MM-DD')}`;
     } else if (currentDate > new Date(budget.endDate)) {
-      daysLeftMessage = `Budget has ended on ${
-        new Date(budget.endDate).toISOString().split('T')[0]
-      }`;
+      daysLeftMessage = `Budget has ended on ${dayjs(budget.endDate).format('YYYY-MM-DD')}`;
     } else {
       daysLeft = getDaysLeft(currentDate, budget?.endDate) - 1;
 
