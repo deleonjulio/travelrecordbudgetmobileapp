@@ -6,7 +6,7 @@ import {Calendar as RNCalendar} from 'react-native-calendars';
 import { Text } from ".";
 import dayjs from "dayjs";
 
-export const CalendarDatePicker = memo(function CalendarDatePicker({value, setValue}) {
+export const CalendarDatePicker = memo(function CalendarDatePicker({value, setValue, minDate = null, maxDate = null}) {
     const [show, setShow] = useState(false)
     const [selectedDate, setSelectedDate] = useState(null)
 
@@ -58,6 +58,8 @@ export const CalendarDatePicker = memo(function CalendarDatePicker({value, setVa
                 >
                     <View style={styles.centeredView}>
                         <RNCalendar
+                            minDate={minDate}
+                            maxDate={maxDate}
                             style={{borderTopRightRadius: 10, borderTopLeftRadius: 10}}
                             enableSwipeMonths
                             theme={styles.calendar}

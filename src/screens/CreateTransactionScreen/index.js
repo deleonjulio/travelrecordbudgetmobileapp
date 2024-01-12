@@ -4,7 +4,7 @@ import 'react-native-get-random-values';
 import {moderateScale} from 'react-native-size-matters';
 import {Typography, Input, CurrencyInput, DropDownPicker, CalendarDatePicker} from '../../components';
 import { RealmContext } from '../../realm/RealmWrapper';
-import { Category, Transaction } from '../../realm/Schema';
+import { Category, Transaction, Budget } from '../../realm/Schema';
 import Realm from 'realm';
 import dayjs from 'dayjs';
 
@@ -16,6 +16,8 @@ export const CreateTransactionScreen = ({route, navigation}) => {
 
   const { useRealm, useQuery, useObject } = RealmContext
   const realm = useRealm()
+  
+  const currentBudget = budgetId && useObject(Budget, new Realm.BSON.ObjectId(budgetId))
 
   const transactionToBeEdited = transactionId && useObject(Transaction, new Realm.BSON.ObjectId(transactionId));
 
@@ -23,12 +25,24 @@ export const CreateTransactionScreen = ({route, navigation}) => {
     return categories.sorted('dateCreated', true)
   })
 
+  const determineDate = () => {
+    if(currentBudget.startDate > new Date()) {
+      return new Date(currentBudget.startDate)
+    }
+
+    if(currentBudget.endDate < new Date()) {
+      return new Date(currentBudget.endDate)
+    }
+
+    return new Date()
+  }
+
   const [categoryList, setCategoryList] = useState(categories.map(({_id, name}) => ({label: name, value: _id.toString()})));
   
   const [amount, setAmount] = useState(transactionToBeEdited ? (transactionToBeEdited?.amount / 100).toString() : 0);
   const [category, setCategory] = useState(transactionToBeEdited ? transactionToBeEdited?.categoryId?.toString() : null);
   const [description, setDescription] = useState(transactionToBeEdited ? transactionToBeEdited?.description : '');
-  const [transactionDate, setTransactionDate] = useState(transactionToBeEdited ? new Date(transactionToBeEdited?.transactionDate) : new Date());
+  const [transactionDate, setTransactionDate] = useState(transactionToBeEdited ? new Date(transactionToBeEdited?.transactionDate) : determineDate());
 
   const [open, setOpen] = useState(false);
 
@@ -101,7 +115,12 @@ export const CreateTransactionScreen = ({route, navigation}) => {
         </View>
         <View>
           <Typography text="Transaction Date" type="text-input" />
-          <CalendarDatePicker value={transactionDate} setValue={setTransactionDate} />
+          <CalendarDatePicker 
+            value={transactionDate} 
+            setValue={setTransactionDate} 
+            minDate={dayjs(currentBudget.startDate).format('YYYY-MM-DD').toString()} 
+            maxDate={dayjs(currentBudget.endDate).format('YYYY-MM-DD').toString()} 
+          />
         </View>
         <TouchableOpacity style={styles.button} onPress={() => onSubmit()}>
           <Text style={styles.buttonText}>Save</Text>
