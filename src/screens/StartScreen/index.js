@@ -91,22 +91,19 @@ export const StartScreen = ({navigation}) => {
           activeDotStyle={{backgroundColor: 'black'}}
           renderNextButton={() => {
             return (
-              <TouchableOpacity onPress={() => refSlider.current.goToSlide(refSlider?.current?.state?.activeIndex + 1)}style={[styles.button, { backgroundColor: 'black' }]}>
-                <Text style={[styles.buttonText, { color: 'white' }]}>Next</Text>
+              <TouchableOpacity onPress={() => refSlider.current.goToSlide(refSlider?.current?.state?.activeIndex + 1)}style={styles.button}>
+                <Text style={styles.buttonText}>Next</Text>
               </TouchableOpacity>
               )
           }}
           renderDoneButton={() => {
             return (
-              <TouchableOpacity onPress={init}style={[styles.button, { backgroundColor: 'black' }]}>
-                <Text style={[styles.buttonText, { color: 'white' }]}>Done</Text>
+              <TouchableOpacity onPress={init} style={styles.button}>
+                <Text style={styles.buttonText}>Done</Text>
               </TouchableOpacity>
               )
           }}
         />
-      // <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor:'white'}}>
-      //   <Button title="Start" onPress={init} />
-      // </View>
     );
   }
 };
@@ -118,10 +115,8 @@ const styles = StyleSheet.create({
     padding: moderateScale(10),
     borderRadius: moderateScale(6),
     alignItems: 'center',
-    backgroundColor: 'black'
   },
   buttonText: {
-    color: 'white',
     fontSize: moderateScale(16),
     fontFamily: 'Muli-Bold',
     color: 'white'

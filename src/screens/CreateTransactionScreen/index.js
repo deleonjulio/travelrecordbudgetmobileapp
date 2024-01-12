@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useLayoutEffect} from 'react';
 import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity} from 'react-native';
 import 'react-native-get-random-values';
 import {moderateScale} from 'react-native-size-matters';
@@ -75,7 +75,7 @@ export const CreateTransactionScreen = ({route, navigation}) => {
     }
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if(transactionId) {
       navigation.setOptions({ title: 'Update Transaction' })
     }
