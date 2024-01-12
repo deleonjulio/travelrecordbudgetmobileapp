@@ -73,7 +73,7 @@ export const DeleteBudgetButton = ({
     <TouchableOpacity style={styles.bottomSheetButton} onPress={confirmDelete}>
       <View style={styles.bottomSheetButtonTextContainer}>
         <Icon name="delete" size={moderateScale(24)} color="red" />
-        <Text style={styles.bottomSheetButtonText}>Delete Budget</Text>
+        <Text style={[styles.bottomSheetButtonText, { color: 'red' }]}>Delete Budget</Text>
       </View>
     </TouchableOpacity>
   );
