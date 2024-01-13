@@ -92,21 +92,26 @@ const BudgetList = ({budgets, handleOpenBottomSheet}) => {
             renderItem={({item}) => {
             return (
                     <TouchableOpacity key={item?._id} style={styles.budgetCard({selected: item?.selected})} onPress={() => handleOpenBottomSheet(item)}>
-                        <View style={{alignItems: 'flex-start', justifyContent: 'center', rowGap: verticalScale(2)}}>
-                            <Text style={styles.budgetName}>{item?.name}</Text>
-                            <Text style={styles.date}>
-                            {`${dayjs(item.startDate).format('MMM DD, YYYY')} - ${dayjs(
-                                item?.endDate,
-                            ).format('MMM DD, YYYY')}`}
-                            </Text>
-                        </View>
-                        <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+                        <View style={{flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', rowGap: verticalScale(2)}}>
                             <View>
+                                <Text style={styles.budgetName} numberOfLines={2} ellipsizeMode='tail' >{item?.name}</Text>
+                                <Text style={styles.date}>
+                                {`${dayjs(item.startDate).format('MMM DD, YYYY')} - ${dayjs(
+                                    item?.endDate,
+                                ).format('MMM DD, YYYY')}`}
+                                </Text>
+                            </View>
+                            <View>
+                                {item?.selected && <Text style={styles.activeText}>Active</Text>}
+                            </View>
+                        </View>
+                        <View style={{flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-end'}}>
+                            <View style={{flex: 0.40}}>
                                 <Text style={styles.transactionCount}>{`${item.transactionCount} transaction${item.transactionCount > 1 || item.transactionCount === 0 ? 's' : ''}`}</Text>
                             </View>
-                            <View style={{alignItems: 'flex-end'}}>
-                                <Text style={styles.amountText}>Amount</Text>
-                                <Text style={styles.budgetAmount}>{`${item?.currency ? item.currency : ''}${moneyFormat(item?.amount)}`}</Text>
+                            <View style={{flex:0.60, alignItems: 'flex-end'}}>
+                                <Text style={styles.amountText}>Budget</Text>
+                                <Text style={styles.budgetAmount} numberOfLines={1} ellipsizeMode='tail'>{`${item?.currency ? item.currency : ''}${moneyFormat(item?.amount)}`}</Text>
                             </View>
                         </View>
                     </TouchableOpacity>
@@ -154,6 +159,11 @@ const styles = StyleSheet.create({
     transactionCount: {
         color: 'black',
         fontSize: moderateScale(14)
-      }
+    },
+    activeText: {
+        color: '#37c796',
+        fontWeight: '600',
+        fontFamily: 'Muli-SemiBold'
+    }
 });
     

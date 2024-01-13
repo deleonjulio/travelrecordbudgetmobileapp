@@ -14,7 +14,7 @@ export const CurrencyInput = forwardRef(({value, onChangeValue, ...rest}, ref) =
       separator="."
       precision={2}
       minValue={0}
-      maxValue={1000000000000}
+      maxValue={1000000000000000}
       placeholder="Amount"
       {...rest}
   />
