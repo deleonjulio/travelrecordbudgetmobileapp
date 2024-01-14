@@ -250,8 +250,8 @@ export const Navigation = () => {
           component={CategoryTransactionListScreen}
           options={({route}) => ({
             headerTintColor: isDarkMode ? 'white' : 'black',
-            headerTitle: 'Category',
-            animation: 'fade_from_bottom',
+            headerTitle: '',
+            animation: 'slide_from_right',
             headerRight: () => <CategoryUpdateButton route={route} />,
           })}
       />

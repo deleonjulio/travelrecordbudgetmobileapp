@@ -23,3 +23,29 @@ export const moneyFormat = initialNumber => {
 
   return formattedNumber;
 };
+
+
+function getRelativeLuminance(hexColor) {
+  // Convert hex to RGB
+  const r = parseInt(hexColor.slice(1, 3), 16) / 255;
+  const g = parseInt(hexColor.slice(3, 5), 16) / 255;
+  const b = parseInt(hexColor.slice(5, 7), 16) / 255;
+
+  // Calculate relative luminance
+  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+
+  return luminance;
+}
+
+export function determineTextColor(backgroundHexColor) {
+  // Set a threshold for deciding whether to use white or black text
+  const threshold = 0.65;
+
+  // Get relative luminance of the background color
+  const backgroundLuminance = getRelativeLuminance(backgroundHexColor);
+
+  // Determine text color based on background luminance
+  const textColor = backgroundLuminance > threshold ? '#000000' : '#ffffff';
+
+  return textColor;
+}

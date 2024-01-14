@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {RealmContext} from '../../realm/RealmWrapper';
-import {moneyFormat} from '../../utils/helper';
+import {moneyFormat, determineTextColor} from '../../utils/helper';
 import {Category, Budget, Transaction} from '../../realm/Schema';
 import Realm from 'realm';
 import {verticalScale, moderateScale, scale} from 'react-native-size-matters';
@@ -15,6 +15,7 @@ import dayjs from 'dayjs';
 import {IndividualTransactions} from './components/IndividualTransactions';
 import {Text, IconCard} from '../../components';
 import {NoTransactionFound} from '..';
+import { useLayoutEffect } from 'react';
 
 export const CategoryTransactionListScreen = ({navigation, route}) => {
   const {useObject, useQuery} = RealmContext;
@@ -25,6 +26,8 @@ export const CategoryTransactionListScreen = ({navigation, route}) => {
     iconColor,
     backgroundColor,
   } = useObject(Category, new Realm.BSON.ObjectId(categoryId));
+
+  const textColor = determineTextColor(iconColor)
 
   const selectedBudget = useQuery(Budget, budgets => {
     return budgets.filtered('selected == $0 && archived == $1', true, false);
@@ -70,12 +73,42 @@ export const CategoryTransactionListScreen = ({navigation, route}) => {
 
   const currency = selectedBudget?.currency ? selectedBudget.currency : '';
 
+  useLayoutEffect(() => {
+
+    navigation.setOptions({ 
+      headerShadowVisible: false,
+      headerStyle: { 
+        backgroundColor: iconColor,
+      },
+      headerTintColor: textColor
+  })
+  }, [iconColor])
+
+  const Header = () => {
+    if(transactions.length > 0) {
+      return (
+        <View style={{backgroundColor: 'white'}}>
+          <View style={{marginHorizontal: scale(14), marginVertical: verticalScale(10), alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row'}}>
+            <Text style={styles.transactionCount}>{`${
+              transactions.length
+            } transaction${
+              transactions.length > 1 || transactions.length === 0 ? 's' : ''
+            }`}</Text>
+            <Text style={styles.categoryAmount}>{`${currency}${moneyFormat(
+              totalExpense,
+            )}`}</Text>
+          </View>
+      </View>
+      )
+    }
+  }
+
   return (
     <View style={{flex: 1}}>
       <View style={styles.topContainer}>
-        <View style={styles.categoryContainer}>
-          <View style={styles.categoryContainerLeft}>
-            <View style={styles.card({backgroundColor})}>
+        <View style={styles.categoryContainer({iconColor})}>
+          <View>
+            <View style={styles.card}>
               <Icon
                 name={categoryIcon ? categoryIcon : 'progress-question'}
                 size={moderateScale(30)}
@@ -83,21 +116,12 @@ export const CategoryTransactionListScreen = ({navigation, route}) => {
               />
             </View>
           </View>
-          <View style={styles.categoryContainerRight}>
-            <Text style={styles.categoryName}>{categoryName}</Text>
-            <Text style={styles.categoryAmount}>{`${currency}${moneyFormat(
-              totalExpense,
-            )}`}</Text>
-            <Text style={styles.transactionCount}>{`${
-              transactions.length
-            } transaction${
-              transactions.length > 1 || transactions.length === 0 ? 's' : ''
-            }`}</Text>
-          </View>
+          <Text style={styles.categoryName({textColor})}>{categoryName}</Text>
         </View>
       </View>
       <View style={styles.bottomContainer}>
         <FlatList
+          ListHeaderComponent={<Header />}
           ListEmptyComponent={<NoTransactionFound />}
           bounces={false}
           showsVerticalScrollIndicator={false}
@@ -138,38 +162,30 @@ export const CategoryTransactionListScreen = ({navigation, route}) => {
 
 const styles = StyleSheet.create({
   topContainer: {
-    flex: Platform.OS === 'ios' ? 2 : 2.2,
+    flex: Platform.OS === 'ios' ? 2 : 1.8,
   },
   bottomContainer: {
-    flex: Platform.OS === 'ios' ? 8 : 7.8,
+    flex: Platform.OS === 'ios' ? 8 : 8.2,
   },
-  categoryContainer: {
+  categoryContainer: ({iconColor}) => ({
     display: 'flex',
-    flexDirection: 'row',
+    // flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: iconColor,
     height: '100%',
-    paddingBottom: verticalScale(18),
     gap: scale(4),
-  },
-  categoryContainerLeft: {
-    flex: 0.25,
-    alignItems: 'center',
-  },
-  categoryContainerRight: {
-    flex: 0.75,
-  },
-  categoryName: {
-    color: 'black',
-    fontSize: verticalScale(20),
+  }),
+  categoryName:({textColor}) => ({
+    color: textColor,
+    fontSize: moderateScale(20),
     fontWeight: '500',
-    ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'}),
-  },
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'}),
+  }),
   categoryAmount: {
     color: 'black',
-    fontSize: verticalScale(20),
-    fontWeight: '400',
-    ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'}),
+    fontSize: moderateScale(20),
+    fontWeight: '600',
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'}),
   },
   groupContainer: {
     marginTop: verticalScale(12),
@@ -188,12 +204,11 @@ const styles = StyleSheet.create({
     ...(Platform.OS === 'android' && {fontFamily: 'Muli-Bold'}),
   },
   transactionCount: {
-    color: 'gray',
-    fontWeight: '500',
+    color: 'black',
     fontSize: verticalScale(14),
-    ...(Platform.OS === 'android' && {fontFamily: 'Muli-SemiBold'}),
+    ...(Platform.OS === 'android' && {fontFamily: 'Muli'}),
   },
-  card: ({backgroundColor}) => ({
+  card: {
     backgroundColor: 'white',
     // padding: moderateScale(14), 
     paddingHorizontal: moderateScale(18),
@@ -201,5 +216,5 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(999),
     borderWidth: moderateScale(0.5),
     borderColor: 'lightgray',
-  }),
+  },
 });

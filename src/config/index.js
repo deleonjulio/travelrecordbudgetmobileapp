@@ -241,8 +241,8 @@ export const CURRENCY_LIST = [
 
 export const CATEGORY_COLOR = [
   {
-    iconColor: 'black',
-    backgroundColor: 'lightgray'
+    iconColor: '#000000',
+    backgroundColor: '#D3D3D3'
   },
   {
     iconColor: '#f6c504',
