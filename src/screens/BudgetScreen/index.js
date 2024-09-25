@@ -219,6 +219,16 @@ const BudgetDaysLeft = memo(function BudgetDaysLeft({budget, isDarkMode}) {
   return null;
 });
 
+const handleNegativeNumber = (currency, amount) => {
+  if(currency && amount >= 0) {
+    return (`${currency}${moneyFormat(amount)}`)
+  } else if(currency && amount < 0) {
+    return (`-${currency}${moneyFormat(Math.abs(amount))}`)
+  }
+
+  return moneyFormat(amount)
+}
+
 const BudgetAmount = memo(function BudgetAmount({
   budget,
   totalExpense,
@@ -243,9 +253,7 @@ const BudgetAmount = memo(function BudgetAmount({
           color: isDarkMode ? 'white' : 'black',
           fontFamily: 'Muli-Bold',
         }}>
-        {`${budget.currency ? budget.currency : ''}${moneyFormat(
-          totalRemaining,
-        )}`}
+          {handleNegativeNumber(budget.currency, totalRemaining)}
       </Text>
     </View>
   );
